@@ -1,15 +1,17 @@
 <template>
   <div class="axs-table">
+    <Eachrts :options="options" />
     <TableContent :title-list="titleList" />
   </div>
 </template>
 <script>
 import { TableContent } from '@/components/Table'
-
+import { Eachrts } from '@/components/Echarts'
 export default {
   name: 'AxsTable',
   components: {
-    TableContent
+    TableContent,
+    Eachrts
   },
   data() {
     return {
@@ -101,6 +103,19 @@ export default {
             text: 'title4'
           }
         ]
+      },
+      options: {
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          type: 'line'
+        }]
       }
     }
   }
